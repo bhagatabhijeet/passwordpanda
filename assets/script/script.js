@@ -1,5 +1,4 @@
 // HTML ELEMENTS
-let generateBtn = document.querySelector("#generate");
 let $passwordText = document.querySelector("#password");
 let $range = document.getElementById("pwdLengthRange");
 let $pwdBackground = document.getElementById("pwdBackground");
@@ -14,7 +13,7 @@ let $numbers = document.getElementById("numbers");
 let $repeatingchars = document.getElementById("repeatingchars");
 let $copybtn = document.getElementById("copybtn");
 
-
+//global charArray array to store the characters for specific criterion
 let charArray = [];
 
 
@@ -23,7 +22,7 @@ $form.addEventListener("click", function (event) {
   let elementId = event.target.id;
   let $target = event.target;
   event.stopPropagation();
-  charArray = [];
+  
   if (event.target.matches("input") || event.target.matches("button") || event.target.matches(".fa.fa-refresh")) {
 
     if (event.target.id === "pwdLengthRange" || event.target.id === "copybtn") {
@@ -46,6 +45,7 @@ $form.addEventListener("click", function (event) {
 
       }
     }
+    //generate password only when all atleast one criterion is selected.
     if ($letters.checked || $mixed.checked || $punctuations.checked || $numbers.checked) {
       buildCharArray();
       generatePassword();
@@ -81,6 +81,7 @@ $range.addEventListener("input", function () {
   }
 });
 
+//handle copybtn onclick
 $copybtn.onclick = function () {
   if ($passwordText.value !== "") {
     $passwordText.select();
@@ -88,6 +89,7 @@ $copybtn.onclick = function () {
   }
 }
 
+//Password generation logic function.
 function generatePassword() {
   let pwd = "";
 
@@ -112,7 +114,9 @@ function generatePassword() {
   $passwordText.value = pwd;
 }
 
+//This is where the charArray is rebuild as per user selection.
 function buildCharArray() {
+  charArray = [];
   if ($letters.checked === true) {
     charArray.push.apply(charArray, Array.from("abcdefghijklmnopqrstuvwxyz"));
   }
@@ -127,6 +131,7 @@ function buildCharArray() {
   }
 }
 
+//show password immidiately on load of page with all checkboxes selected as default.
 $(document).ready(function () {
   buildCharArray();
   generatePassword();
