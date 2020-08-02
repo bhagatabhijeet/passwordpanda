@@ -55,21 +55,26 @@
         <div class="row">
             <div class="col-lg-12">
                 <form>
+                    <!-- pwdBackGround is the background div of passwordText. 
+                        The password background will turn green or red depending on number of chosen password length -->
                     <div class="form-row" id="pwdBackground">
                         <div class="form-group col-lg-10">
-                            <!-- <input type="text" class="form-control form-control-lg no-border" id="password"
-                                readonly> -->
+                            <!-- password textarea is kept readonly using 'readonly attribute' -->
                             <textarea class="form-control" rows="3" id="password" readonly></textarea>
                         </div>
                         <div class="form-group">
+                            <!-- regenate button is used to regenerate password using already selected criteria -->
                             <button type="button" class="btn btn-md btn-outline-light" id="regenerate"><i class="fa fa-refresh"
                                 aria-hidden="true"></i></button>
                         </div>
                         <div class="form-group">
+                            <!-- copybtn copies the password to clipboard -->
                             <button type="button" class="btn btn-md btn-outline-light" id="copybtn"><i class="fa fa-clipboard"
                                     aria-hidden="true"></i></button>
                         </div>
-
+                        <!-- This form group is to convey user is the password is weak or strong.
+                            weak or strong is decided based on length.
+                         -->
                         <div class="form-group col-sm-12">
                             <div class="text-center" style="background-color: #d2def7;opacity: 0.7;">
                                 <img src="assets/images/panda_btn.png" height="20" style="margin: 0px;" />
@@ -81,12 +86,12 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-12">
+                            <!-- password length using range control -->
                             <label for="pwdLengthRange">Select Password Length (8-128 characters)</label>
                             <div class="range-wrap" style="width: 75%;">
                                 <input type="range" class="form-control-range range" id="pwdLengthRange" min="0" max="128"
                                     value="8">
-                                <!-- oninput="ageOutputId.value = formControlRange.value" -->
-                                <!-- <output name="rangebubble" id="rangebubble" class="bubble"></output> -->
+                                <!-- the password length bubble is a div which visually shows length of range -->
                                 <div id="pwdLength" class="bubble">8</div>
                             </div>
                         </div>
@@ -94,6 +99,7 @@
                     <div class="form-row">
                         <div class="form-group col-lg-12">
                             <div class="form-check">
+                                <!-- Allow repeating characters checkbox -->
                                 <input class="form-check-input" type="checkbox" id="repeatingchars" checked="true">
                                 <label class="form-check-label" for="gridCheck">
                                     Allow Repeating Characters
@@ -104,6 +110,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <div class="form-check">
+                                <!-- Checkbox to allow lower case letters in password -->
                                 <input class="form-check-input" type="checkbox" id="letters" checked="true">
                                 <label class="form-check-label" for="gridCheck">
                                     Letters (lower case)
@@ -112,6 +119,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <div class="form-check">
+                                <!-- Checkbox to allow both lower and upper case letters in password -->
                                 <input class="form-check-input" type="checkbox" id="mixedcase" checked="true">
                                 <label class="form-check-label" for="gridCheck">
                                     Mixed Case (lower case + upper case)
@@ -120,6 +128,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <div class="form-check">
+                                <!-- Checkbox to allow special case characters in password -->
                                 <input class="form-check-input" type="checkbox" id="punctuations" checked="true">
                                 <label class="form-check-label" for="gridCheck">
                                     Punctuations
@@ -128,6 +137,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <div class="form-check">
+                                <!-- Checkbox to allow numbers in password -->
                                 <input class="form-check-input" type="checkbox" id="numbers" checked="true">
                                 <label class="form-check-label" for="gridCheck">
                                     Numbers
